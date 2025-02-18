@@ -1,27 +1,27 @@
 # Here are potential answers to the example questions in the final SQL project. 
 # Note that there are often multiple ways to write SQL to come up with the same answer. 
 
-#1. 
+#1. Show Customers (their full names, customer ID, and country) who are not in the US.
 SELECT FirstName, LastName, CustomerId, Country 
 FROM chinook.customers 
 WHERE Country != "USA";
 
-#2. 
+#2. Show only the Customers from Brazil.
 SELECT * FROM chinook.customers 
 WHERE Country = "Brazil" ;
 
-#3. 
+#3. Find the Invoices of customers who are from Brazil. Show the customer's full name, Invoice ID, Date of the invoice, and billing country.
 SELECT cust.FirstName, cust.LastName, inv.InvoiceId, inv.BillingCountry, inv.InvoiceDate
 FROM chinook.invoices as inv 
 LEFT JOIN chinook.customers as cust 
 on inv.CustomerId = cust.CustomerId 
 WHERE inv.BillingCountry = "Brazil";
 
-#4. 
+#4. Show the Employees who are Sales Agents.
 SELECT * FROM chinook.Employees
 WHERE Title = "Sales Support Agent" ;
 
-#5. 
+#5. Find a unique/distinct list of billing countries from the Invoice table.
 SELECT DISTINCT BillingCountry FROM chinook.Invoices ;
 
 #6.
