@@ -11,3 +11,10 @@ SELECT v.first_name, v.last_name
 FROM vips v
 INNER JOIN reservations r ON v.member_id = r.member_id
 WHERE r.welcome_rsvp = 1;
+
+Multiple JOINs: Retrieve event names, attendee names, and their hotel names.
+SELECT e.event_name, v.first_name, v.last_name, h.hotel_name
+FROM vips v
+INNER JOIN events e ON v.event = e.event_id
+LEFT JOIN reservations r ON v.member_id = r.member_id
+LEFT JOIN hotels h ON r.hotel = h.hotel_id;
