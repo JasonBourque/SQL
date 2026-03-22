@@ -5,3 +5,9 @@ LEFT JOIN: List all VIPs and their associated hotel reservations, including VIPs
 SELECT v.member_id, v.first_name, v.last_name, r.hotel
 FROM vips v
 LEFT JOIN reservations r ON v.member_id = r.member_id;
+
+INNER JOIN: Find the names of VIPs who have RSVP’d for the welcome event.
+SELECT v.first_name, v.last_name
+FROM vips v
+INNER JOIN reservations r ON v.member_id = r.member_id
+WHERE r.welcome_rsvp = 1;
