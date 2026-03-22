@@ -1,0 +1,7 @@
+Climate Conference Project
+Database: https://www.db-fiddle.com/f/pxMci1sLL945KHKYvpe9W6/1
+
+LEFT JOIN: List all VIPs and their associated hotel reservations, including VIPs who may not have made a reservation.
+SELECT v.member_id, v.first_name, v.last_name, r.hotel
+FROM vips v
+LEFT JOIN reservations r ON v.member_id = r.member_id;
