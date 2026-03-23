@@ -24,3 +24,16 @@ SELECT v1.first_name AS feedback_giver, v1.last_name AS giver_last,
        v2.first_name AS feedback_receiver, v2.last_name AS receiver_last
 FROM vips v1
 JOIN vips v2 ON v1.provides_feedback_to = v2.member_id;
+
+Query with a Subquery: Find VIPs staying at the hotel with the most reservations.
+SELECT v.first_name, v.last_name, h.hotel_name
+FROM vips v
+JOIN reservations r ON v.member_id = r.member_id
+JOIN hotels h ON r.hotel = h.hotel_id
+WHERE r.hotel = (
+    SELECT hotel 
+    FROM reservations 
+    GROUP BY hotel 
+    ORDER BY COUNT(*) DESC 
+    LIMIT 1
+);
