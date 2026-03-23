@@ -18,3 +18,9 @@ FROM vips v
 INNER JOIN events e ON v.event = e.event_id
 LEFT JOIN reservations r ON v.member_id = r.member_id
 LEFT JOIN hotels h ON r.hotel = h.hotel_id;
+
+SELF JOIN: Find VIPs who provide feedback to others and the corresponding VIPs who receive their feedback.
+SELECT v1.first_name AS feedback_giver, v1.last_name AS giver_last, 
+       v2.first_name AS feedback_receiver, v2.last_name AS receiver_last
+FROM vips v1
+JOIN vips v2 ON v1.provides_feedback_to = v2.member_id;
