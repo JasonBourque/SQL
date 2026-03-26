@@ -43,3 +43,10 @@ SELECT v.first_name, v.last_name, v.association
 FROM vips v
 JOIN reservations r ON v.member_id = r.member_id
 WHERE v.assoc_type = 'government' AND r.dinner_rsvp = 1;
+
+Custom Query: Find the number of VIPs attending each event, ordered by event attendance.
+SELECT e.event_name, COUNT(v.member_id) AS attendee_count
+FROM events e
+LEFT JOIN vips v ON e.event_id = v.event
+GROUP BY e.event_name
+ORDER BY attendee_count DESC;
