@@ -37,3 +37,9 @@ WHERE r.hotel = (
     ORDER BY COUNT(*) DESC 
     LIMIT 1
 );
+
+Custom Query: Get a list of all government-affiliated VIPs who have RSVP’d for dinner.
+SELECT v.first_name, v.last_name, v.association
+FROM vips v
+JOIN reservations r ON v.member_id = r.member_id
+WHERE v.assoc_type = 'government' AND r.dinner_rsvp = 1;
