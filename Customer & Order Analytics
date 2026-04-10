@@ -60,4 +60,12 @@ List all the products sold in Los Angeles in February, and include how many of e
 SELECT Product, SUM(quantity)
 FROM BIT_DB.FebSales
 WHERE location like '%Los Angeles%'
-GROUP BY Product 
+GROUP BY Product
+
+How many of each type of headphone were sold in February?
+SELECT SUM(Quantity), Product
+FROM BIT_DB.FebSales
+WHERE Product LIKE '%Headphones%'
+AND length(orderid) = 6
+AND orderid <> 'Order ID'
+GROUP BY Product
