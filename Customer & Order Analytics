@@ -119,3 +119,11 @@ WHERE orderID LIKE '1943_5'
 AND length(orderid) = 6
 AND orderid <> 'Order ID'
 ORDER BY orderID;
+
+Which product brought in the most revenue in January and how much revenue did it bring in total?
+In other words, show the one product that generated the most revenue (revenue being equivalent to quantity of an item multiplied by the item’s price). 
+SELECT product, sum(quantity*price)
+FROM BIT_DB.JanSales
+GROUP BY product
+ORDER BY sum(quantity*price) desc
+LIMIT 1
