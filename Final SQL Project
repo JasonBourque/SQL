@@ -84,7 +84,7 @@ WHERE emp.Title = 'Sales Support Agent'
 GROUP BY emp.FirstName;
 
 OR
-CHATgpt recommends...
+ChatGPT recommends...
 SELECT 
     emp.EmployeeId,
     emp.FirstName, 
@@ -113,7 +113,7 @@ GROUP BY emp.FirstName
 ORDER BY (round(sum(Inv.Total), 2))  DESC LIMIT 1;
 
 OR
-CHATgpt recommends...
+ChatGPT recommends...
 SELECT 
     emp.EmployeeId,
     emp.FirstName, 
